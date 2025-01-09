@@ -85,20 +85,17 @@ WSGI_APPLICATION = 'pm_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'your_database_name',
-        # For local MongoDB
-        # 'HOST': 'localhost',
-        'PORT': 27017,
-        
-        # If authentication is required
-        # 'USER': 'your_username',
-        # 'PASSWORD': 'your_password',
-        
-        # For MongoDB Atlas
-        'HOST': 'mongodb+srv://dinethsiriwardana28:<db_password>@pmbackend.qlar9.mongodb.net/?retryWrites=true&w=majority&appName=pmbackend'
+        'NAME': 'pm_db',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://dinethsiriwardana28:3uBkc7K1ar9aBSJi@pmbackend.qlar9.mongodb.net/?retryWrites=true&w=majority&appName=pmbackend',
+            'tlsAllowInvalidCertificates': True,
+            'ssl': True,
+            'ssl_cert_reqs': False,
+            'authMechanism': 'SCRAM-SHA-1'
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
