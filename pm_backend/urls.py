@@ -5,4 +5,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('projects.urls')),  # This connects to your app's URLs
+    path('api/', include('users.urls')),  # This connects to your app's URLs
 ]
