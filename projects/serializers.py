@@ -1,7 +1,9 @@
 from rest_framework import serializers
-from .models import Sample
+from .models import Todos
+from bson import ObjectId
 
-class SampleSerializer(serializers.ModelSerializer):
+
+class TodoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Sample
+        model = Todos
         fields = '__all__'
