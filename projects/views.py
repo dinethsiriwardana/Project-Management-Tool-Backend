@@ -15,6 +15,7 @@ class TodoViewSet(viewsets.ViewSet):
 
     # List all todos
     def list(self, request):
+        print(request);
         todos = Todos.objects.all()
         serializer = TodoSerializer(todos, many=True)
         return Response(serializer.data)
