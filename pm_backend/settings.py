@@ -83,8 +83,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pm_backend.wsgi.application'
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',  # Allow any user to access
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # You can leave this empty or use specific authentication classes like SessionAuthentication if required
     ),
 }
 

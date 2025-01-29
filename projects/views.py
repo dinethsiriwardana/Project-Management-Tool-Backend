@@ -7,6 +7,7 @@ from rest_framework.decorators import action
 from .models import Todos
 from .serializers import TodoSerializer  # Assuming you have a TodoSerializer instead of SampleSerializer
 from bson import ObjectId
+from bson.errors import InvalidId
 
 class TodoViewSet(viewsets.ViewSet):
     
@@ -47,7 +48,8 @@ class TodoViewSet(viewsets.ViewSet):
     def todo_update(self, request, pk=None):
         try:
             # Use _id and ObjectId for MongoDB
-            todo = Todos.objects.get(_id=ObjectId(pk))
+           todo = Todos.objects.get(_id=ObjectId(pk))
+
         except (Todos.DoesNotExist, InvalidId):
             return Response(
                 {"error": "Todo not found or invalid ID"}, 
